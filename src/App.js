@@ -1,13 +1,12 @@
 import Layout from "./hoc/Layout/Layout";
+import Quiz  from "./containers/Quiz/Quiz";
 
 function App() {
-  return (
-      <Layout>
-          <div style={{border: '1px solid black', width: 400}}>
-              <h1>Layout</h1>
-          </div>
-      </Layout>
-  );
+    return (
+        <Layout>
+            <Quiz/>
+        </Layout>
+    );
 }
 
 export default App;
