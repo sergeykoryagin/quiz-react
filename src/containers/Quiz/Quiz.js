@@ -9,15 +9,21 @@ class Quiz extends Component {
         this.state = {
             quiz: [
                 {
-                    answers:[
-                        {text: 'Answer 1'},
-                        {text: 'Answer 2'},
-                        {text: 'Answer 3'},
-                        {text: 'Answer 4'}
+                    question: 'Lol?',
+                    theRightAnswerId: 2,
+                    answers: [
+                        {id: 1, text: 'Answer 1'},
+                        {id: 2, text: 'Answer 2'},
+                        {id: 3, text: 'Answer 3'},
+                        {id: 4, text: 'Answer 4'}
                     ]
                 }
             ]
         }
+    }
+
+    handlerAnswerClick = id => {
+        console.log(id);
     }
 
     render() {
@@ -25,7 +31,10 @@ class Quiz extends Component {
             <div className={styles.Quiz}>
                 <div className={styles.QuizWrapper}>
                     <h1>Choose the correct answer</h1>
-                    <ActiveQuiz answers={this.state.quiz[0].answers}/>
+                    <ActiveQuiz
+                        answers={this.state.quiz[0].answers}
+                        onAnswerClick={this.handlerAnswerClick}
+                    />
                 </div>
             </div>
         )
