@@ -7,7 +7,16 @@ class Quiz extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            quiz: []
+            quiz: [
+                {
+                    answers:[
+                        {text: 'Answer 1'},
+                        {text: 'Answer 2'},
+                        {text: 'Answer 3'},
+                        {text: 'Answer 4'}
+                    ]
+                }
+            ]
         }
     }
 
@@ -15,8 +24,8 @@ class Quiz extends Component {
         return (
             <div className={styles.Quiz}>
                 <div className={styles.QuizWrapper}>
-                    <h1>Quiz</h1>
-                    <ActiveQuiz/>
+                    <h1>Choose the correct answer</h1>
+                    <ActiveQuiz answers={this.state.quiz[0].answers}/>
                 </div>
             </div>
         )

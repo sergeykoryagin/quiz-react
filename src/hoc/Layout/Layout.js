@@ -3,10 +3,8 @@ import styles from './Layout.module.css'
 
 class Layout extends Component {
     render() {
-        console.log(styles)
         return (
             <div className={styles.Layout}>
-
                 <main>
                     {this.props.children}
                 </main>
