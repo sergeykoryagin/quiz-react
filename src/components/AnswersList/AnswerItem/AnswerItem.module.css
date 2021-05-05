@@ -7,6 +7,14 @@
 }
 
 .AnswerItem:hover {
-    background-color: #b3b3b3;
+    background-color: rgba(200, 200, 200, 0.3);
     transition: background-color .2s ease-in-out;
+}
+
+.AnswerItem.success {
+    background-color: rgba(161, 240, 69, .7);
+}
+
+.AnswerItem.error {
+    background-color: rgba(240, 87, 108, .7);
 }
