@@ -1,5 +1,6 @@
 import React from 'react';
-import styles from './FinishedQuiz.module.css'
+import styles from './FinishedQuiz.module.css';
+import Button from './../UI/Button/Button'
 
 const FinishedQuiz = props => {
     const successCount = Object.keys(props.results).reduce((total, key) => {
@@ -27,7 +28,8 @@ const FinishedQuiz = props => {
         <p>Correct answers <strong>{successCount}/{props.quiz.length}</strong></p>
 
         <div>
-            <button onClick={props.onTryAgainClick}>Try again</button>
+            <Button onClick={props.onTryAgainClick} type={'primary'}>Try again</Button>
+            <Button type={'success'}>Show the test list</Button>
         </div>
     </div>
 }
