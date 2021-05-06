@@ -18,11 +18,18 @@ class Layout extends Component {
         )
     }
 
+    handlerMenuCloseClick = () => {
+        this.setState({
+            menu: false
+        })
+    }
+
     render() {
         return (
             <div className={styles.Layout}>
                 <Drawer
                     isOpen={this.state.menu}
+                    onMenuClose={this.handlerMenuCloseClick}
                 />
 
                 <MenuToggle
