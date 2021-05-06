@@ -1,24 +1,33 @@
 import React from 'react';
 import styles from './FinishedQuiz.module.css'
 
-const FinishedQuiz = () => {
+const FinishedQuiz = props => {
+    const successCount = Object.keys(props.results).reduce((total, key) => {
+        if (props.results[key] === 'success') {
+            total++
+        }
+        return total
+    }, 0)
+
     return <div className={styles.FinishedQuiz}>
         <ul>
-            <li>
-                <strong>1. </strong>
-                Lol?
-                <i className={'fa fa-times ' + styles.error}/>
-            </li>
-            <li>
-                <strong>2. </strong>
-                2+3
-                <i className={'fa fa-check ' + styles.success}/>
-            </li>
+            {props.quiz.map((quizItem, index) => {
+                const classes = [
+                    'fa',
+                    props.results[quizItem.id] === 'error' ? 'fa-times' : 'fa-check',
+                    styles[props.results[quizItem.id]]
+                ]
+                return <li key={index}>
+                    <strong>{quizItem.id}. </strong>
+                    {quizItem.question}
+                    <i className={classes.join(' ')}/>
+                </li>
+            })}
         </ul>
-        <p>Correct answers <strong>4/10</strong></p>
+        <p>Correct answers <strong>{successCount}/{props.quiz.length}</strong></p>
 
         <div>
-            <button>Try again</button>
+            <button onClick={props.onTryAgainClick}>Try again</button>
         </div>
     </div>
 }
